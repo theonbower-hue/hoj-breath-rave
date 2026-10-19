@@ -11,7 +11,10 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://breathrave.houseofjung.org/">
   <link rel="canonical" href="https://breathrave.houseofjung.org/">
-  <meta property="og:image" content="https://breathrave.houseofjung.org/img/og-share.jpg">
+  <meta property="og:image" content="https://breathrave.houseofjung.org/img/og-rave.jpg">
+  <meta property="og:image:alt" content="Sober Breath Rave, London, January 2027. Dance, breathe, connect.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://breathrave.houseofjung.org/img/og-rave.jpg">
   <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="/img/favicon-64.png">
@@ -84,12 +87,7 @@
           <source src="/img/rave-hero.mp4" type="video/mp4">
         </video>
         <div class="film-shade"></div>
-        <div class="film-top">
-          <span class="film-label">THIS IS THE ROOM</span>
-          <button id="video-toggle" class="film-button" type="button" aria-label="Pause footage">Pause footage <span aria-hidden="true">❚❚</span></button>
-        </div>
-        <div class="film-title" aria-hidden="true">LOSE<br>YOURSELF.</div>
-        <figcaption><span>On the dancefloor</span><span>Moments from our community</span></figcaption>
+        <div class="film-title" aria-hidden="true">DANCE,<br>BREATHE,<br>CONNECT.</div>
       </figure>
 
     </div>
@@ -328,20 +326,7 @@
   if (flyer && still) { flyer.removeAttribute("autoplay"); flyer.pause(); }
 
   var v = document.getElementById("rave-video");
-  var b = document.getElementById("video-toggle");
-  if (!v || !b) return;
-  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    v.removeAttribute("autoplay"); v.pause();
-  }
-  function label() {
-    var playing = !v.paused;
-    b.innerHTML = (playing ? "Pause footage " : "Play footage ") +
-      '<span aria-hidden="true">' + (playing ? "\u275A\u275A" : "\u25B6") + "</span>";
-    b.setAttribute("aria-label", playing ? "Pause footage" : "Play footage");
-  }
-  b.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
-  v.addEventListener("play", label); v.addEventListener("pause", label);
-  label();
+  if (v && still) { v.removeAttribute("autoplay"); v.pause(); }
 })();
 </script>
 </body>

@@ -51,30 +51,11 @@ body.rave .hoj-mark { width: 120px; height: auto; }
   position: absolute; inset: 0;
   background: linear-gradient(0deg, rgba(14,10,22,.88) 0%, transparent 58%, rgba(14,10,22,.45) 100%);
 }
-.film-top {
-  position: absolute; top: 34px; left: 0; right: 0;
-  display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff;
-}
-.film-label { font-size: .72rem; letter-spacing: .18em; font-weight: 700; text-shadow: 0 1px 6px rgba(0,0,0,.7); }
-.film-button {
-  border: 1px solid rgba(255,255,255,.55); border-radius: 100px;
-  background: rgba(20,13,40,.45); color: #fff; padding: 8px 14px;
-  display: flex; align-items: center; gap: 9px; font-size: .74rem;
-  cursor: pointer; backdrop-filter: blur(10px); min-height: 38px;
-}
-.film-button:hover { background: rgba(20,13,40,.8); }
 .film-title {
-  position: absolute; bottom: 74px; left: 30px;
+  position: absolute; bottom: 38px; left: 32px; right: 32px;
   font-family: Archivo, Arial, sans-serif; font-weight: 900; color: #fff;
   font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.05em;
 }
-.rave-film figcaption {
-  position: absolute; bottom: 24px; left: 30px; right: 30px;
-  display: flex; justify-content: space-between; gap: 16px;
-  font-size: .72rem; color: #fff;
-  border-top: 1px solid rgba(255,255,255,.3); padding-top: 12px;
-}
-.rave-film figcaption span:last-child { opacity: .72; }
 
 .rave-eyebrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--purple); font-size: .75rem; }
 .rave-eyebrow .mini-line { width: 24px; height: 2px; background: var(--purple); }
@@ -278,8 +259,7 @@ body.rave .footer-bottom { border-top-color: var(--line); }
   .rave-film { min-height: 0; height: 440px; max-width: 460px; width: 100%; justify-self: center;
                border-radius: 150px 150px 18px 18px; order: -1; }
   .film-title { font-size: 2.4rem; bottom: 66px; left: 26px; }
-  .rave-film figcaption { left: 26px; right: 26px; }
-}
+  }
 @media (max-width: 700px) {
   .rave-hero-inner { padding-block: 36px 40px; }
   .rave-film { height: 380px; border-radius: 120px 120px 16px 16px; }

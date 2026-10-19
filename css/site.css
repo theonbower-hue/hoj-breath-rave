@@ -1,0 +1,491 @@
+/* House of Jung additions to the SOMA page: sign-up form, cookie consent.
+   Uses the tokens defined in style.css (--ink, --purple, --paper, --line). */
+
+/* display:grid would otherwise beat the browser's [hidden] rule and keep the
+   form on screen next to the thank-you. */
+[hidden] { display: none !important; }
+
+.signup-form { display: grid; gap: 10px; text-align: left; }
+
+.signup-form label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.signup-form input[type="email"] {
+  font-family: var(--font);
+  font-size: 1.0625rem; /* 17px — at 16px or above iOS does not zoom on focus */
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  min-height: 54px;
+  padding: 14px 22px;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+
+.signup-form input[type="email"]::placeholder { color: #9b93a6; }
+.signup-form input[type="email"]:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(107, 43, 216, .18);
+}
+.signup-form input[aria-invalid="true"] { border-color: #b3261e; }
+
+.signup-form .button { min-height: 54px; cursor: pointer; border: 0; font-family: var(--font); }
+.signup-form .button[aria-busy="true"] { opacity: .75; cursor: default; }
+.signup-form .button[aria-busy="true"] .cta-label::after {
+  content: "";
+  display: inline-block;
+  width: .85em;
+  height: .85em;
+  margin-left: .6em;
+  vertical-align: -.1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: hoj-spin .7s linear infinite;
+}
+
+@keyframes hoj-spin { to { transform: rotate(360deg); } }
+
+.field-note { margin: 0 0 0 22px; font-size: .78rem; line-height: 1.4; color: #b3261e; }
+.form-status { margin: 4px 0 0; font-size: .82rem; line-height: 1.45; color: #b3261e; }
+.form-status:empty { display: none; }
+
+/* Honeypot: off-screen rather than display:none, which some bots skip. */
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+
+.signup-thanks {
+  text-align: left;
+  background: #fffdfbe6;
+  border: 1px solid #e7e0ed;
+  border-radius: 18px;
+  padding: 20px 22px;
+  outline: none;
+}
+
+.signup-thanks .thanks-title {
+  font-family: "Archivo Black", var(--font);
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+
+.signup-thanks p { font-size: .95rem; line-height: 1.55; color: var(--muted); margin: 0; }
+
+/* ---------- cookie consent ---------- */
+
+.consent {
+  position: fixed;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  z-index: 60;
+  width: min(calc(100% - 24px), 34rem);
+  display: grid;
+  gap: 14px;
+  padding: 18px 20px;
+  background: #fffdfbf7;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid #e7e0ed;
+  border-radius: 18px;
+  box-shadow: 0 18px 50px -18px rgba(23, 18, 31, .35);
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.consent p { margin: 0; }
+.consent a { color: var(--ink); }
+
+.consent-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* Accept and Decline carry equal weight, as regulators expect. */
+.consent-btn {
+  font-family: var(--font);
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #ded9e6;
+  border-radius: 100px;
+  min-height: 46px;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.consent-btn:hover { border-color: var(--purple); }
+
+/* The page has its own fixed mobile bar (~78px); lift the banner clear of it. */
+@media (max-width: 860px) {
+  .consent { bottom: calc(90px + env(safe-area-inset-bottom)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-form .button[aria-busy="true"] .cta-label::after { animation-duration: 2s; }
+}
+
+/* ---------- logos, matched weight ---------- */
+
+.header .collab img { width: auto; height: 22px; display: block; }
+.footer-hoj { width: auto; height: 20px; }
+
+@media (max-width: 700px) {
+  .header .collab img { height: 18px; }
+}
+
+/* ---------- hero sign-up (no click needed) ---------- */
+
+.hero-signup {
+  margin-top: 30px;
+  max-width: 420px;
+}
+
+.hero-signup .signup-form { gap: 8px; }
+.hero-signup .signup-form label { color: #5b476d; }
+.hero-signup .signup-form .button { justify-content: space-between; width: 100%; }
+.hero-signup .signup-thanks { background: #ffffffcc; }
+
+.hero-actions { margin-top: 18px; }
+
+/* ---------- sign-up dialog ---------- */
+
+.signup-dialog {
+  width: min(calc(100% - 32px), 30rem);
+  border: 0;
+  border-radius: 22px;
+  padding: 32px 28px 28px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 40px 90px -30px rgba(23, 18, 31, .45);
+}
+
+.signup-dialog::backdrop { background: rgba(23, 18, 31, .55); backdrop-filter: blur(3px); }
+.signup-dialog .eyebrow { font-size: .7rem; letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; }
+
+.signup-dialog h2 {
+  font-family: "Archivo Black", var(--font);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.dialog-lede { font-size: .95rem; line-height: 1.55; color: var(--muted); margin: 0 0 22px; }
+.dialog-fine { font-size: .75rem; line-height: 1.6; color: #5b476d; margin: 14px 0 0; }
+
+.dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.dialog-close:hover { background: #f1ecf8; color: var(--ink); }
+
+.signup-dialog .signup-form .button { width: 100%; justify-content: space-between; }
+
+/* Buttons that open the dialog are <button>, so match the anchor styling. */
+button.button { font-family: var(--font); border: 0; cursor: pointer; }
+
+/* ---------- venue logo ---------- */
+
+.venue-large .fabric-logo {
+  display: block;
+  width: auto;
+  height: 1em;
+  margin-bottom: .12em;
+}
+
+/* text-link is styled for <a>; match it for the button that opens the dialog */
+button.text-link {
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* The venue strip sets its own type size; the mark matches its cap height. */
+.venue-word {
+  display: flex;
+  align-items: baseline;
+  gap: .4em;
+}
+
+.venue-word .fabric-logo-dark {
+  display: block;
+  width: auto;
+  height: .72em;
+  align-self: center;
+}
+
+/* ---------- teaser poster ---------- */
+
+.priority .poster { margin: 0 0 24px; max-width: 300px; }
+
+.priority .poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px -24px rgba(23, 18, 31, .55);
+}
+
+@media (max-width: 860px) {
+  .priority .poster { max-width: 68vw; margin-bottom: 20px; }
+}
+
+/* ---------- closing section: poster left, words and form right ---------- */
+
+.priority-grid { display: grid; gap: 40px; align-items: center; }
+
+.priority .poster { max-width: none; margin: 0; }
+
+.priority-copy > p { font-size: 1rem; line-height: 1.6; margin: 0 0 14px; }
+.priority-copy .signup-action { text-align: left; margin-top: 26px; max-width: 420px; }
+.priority-copy .signup-action > span { text-align: left; }
+
+@media (min-width: 861px) {
+  /* Words and sign-up on the left, flyer on the right. The poster stays first in
+     the markup so it leads on phones, where it reads as the save-the-date. */
+  .priority-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+    gap: 64px;
+  }
+
+  .priority .poster { order: 2; }
+  .priority-copy { order: 1; }
+  .priority-copy h2.display { margin-bottom: 20px; }
+}
+
+@media (max-width: 860px) {
+  .priority .poster { max-width: 78vw; margin-bottom: 8px; }
+  .priority-copy .signup-action { max-width: none; }
+}
+
+/* ---------- sign-up: matching field and button, clearer button ---------- */
+
+.signup-kicker {
+  margin: 0 0 12px;
+  font-size: .92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.signup-form input[type="email"],
+.signup-form .button {
+  min-height: 58px;
+  border-radius: 100px;
+  padding-inline: 24px;
+}
+
+/* Purple reads as "press me"; the near-black pill was reading as a block of text. */
+.signup-form .button {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: 0 12px 26px -12px rgba(107, 43, 216, .75);
+  justify-content: space-between;
+  transition: background .18s, transform .1s, box-shadow .18s;
+}
+
+.signup-form .button:hover:not(:disabled) { background: #5a21bd; }
+.signup-form .button:active:not(:disabled) { transform: scale(.985); box-shadow: 0 6px 16px -10px rgba(107, 43, 216, .8); }
+
+/* The white button on the dark venue panel gets the same lift. */
+.sound-copy .button.light {
+  color: var(--purple);
+  box-shadow: 0 12px 28px -14px rgba(0, 0, 0, .8);
+}
+
+/* ---------- venue: name under the mark, aligned ---------- */
+
+.sound-copy .venue-large {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.sound-copy .venue-large > span {
+  font-size: .22em;
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@media (max-width: 700px) {
+  /* One fact per row, each on a single line: label left, value right, with
+     full-width rules between them. */
+  .event-strip { grid-template-columns: 1fr; gap: 0; }
+
+  .event-strip > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding-left: 0;
+    padding-block: 16px;
+  }
+
+  .event-strip > div + div {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid #2a183320;
+    margin-top: 0;
+  }
+
+  .event-strip > div:nth-child(3) {
+    grid-column: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    padding-top: 16px;
+    margin-top: 0;
+  }
+
+  /* their rules indent the middle column for the old two-column strip */
+  .event-strip > div:nth-child(2) { padding-left: 0; }
+
+  .event-strip .meta-label { flex: none; }
+  .event-strip strong { text-align: right; }
+  .event-strip > div:nth-child(2) strong { max-width: none; }
+
+  /* "fabric" and "London" ride the same line again in this layout */
+  .venue-word { flex-direction: row; align-items: center; gap: 8px; }
+  .venue-word .fabric-logo-dark { height: 1em; align-self: center; }
+  .venue-word > span { font-size: .62em; letter-spacing: .01em; margin-left: 0; }
+
+  /* flyer centred */
+  .priority .poster { margin-inline: auto; }
+}
+
+@media (max-width: 370px) {
+  /* their stylesheet stacks the third row again below 370px */
+  .event-strip > div:nth-child(3) { flex-direction: row; align-items: center; gap: 14px; }
+}
+}
+
+/* Field and button: identical footprint */
+.signup-form input[type="email"],
+.signup-form .button {
+  height: 58px;
+  min-height: 58px;
+  padding-block: 0;
+}
+
+/* The kicker line and placeholder say it; keep the label for screen readers only. */
+.signup-form label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Solid white on the dark panel: the tinted version read as disabled. */
+.sound-copy .button.light {
+  background: #fff;
+  color: var(--purple);
+}
+
+.sound-copy .button.light:hover { background: #f3eeff; }
+
+/* ---------- proof strip ---------- */
+
+.proof { padding-block: 10px 0; }
+
+.proof-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 30px;
+}
+
+.proof-list li { display: grid; gap: 7px; }
+
+.proof-list strong {
+  font-family: "Archivo Black", var(--font);
+  font-size: .95rem;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+
+.proof-list span { font-size: .92rem; line-height: 1.6; color: var(--muted); }
+
+@media (min-width: 861px) {
+  .proof-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 44px; padding-block: 36px; }
+}
+
+/* ---------- who comes ---------- */
+
+.who-inner { max-width: 44rem; }
+.who-inner h2 { margin-bottom: 20px; }
+.who-inner h2 > span { color: var(--purple); }
+.who-inner p { font-size: 1.05rem; line-height: 1.65; margin: 0 0 14px; }
+
+/* ---------- secret venue ---------- */
+
+/* Matches the other values in the strip: it is a sentence, not a logo. */
+.venue-secret {
+  display: block;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.venue-secret > span {
+  display: block;
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 0;
+  letter-spacing: 0;
+}
+
+.venue-secret-large {
+  font-family: "Archivo Black", var(--font);
+  font-size: clamp(2rem, 7vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  display: block;
+  margin-bottom: 22px;
+  max-width: 11ch;
+}
+
+@media (max-width: 700px) {
+  .venue-secret { text-align: right; }
+  .venue-secret > span { font-size: .72rem; font-weight: 400; }
+}
+
+/* Segments wrap as whole phrases, never mid-phrase. */
+.hero-eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .5rem; }
+.hero-eyebrow .eb { white-space: nowrap; }

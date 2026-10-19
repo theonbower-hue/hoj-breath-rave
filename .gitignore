@@ -1,0 +1,5 @@
+# Vercel CLI auth and project link. The auth folder holds a login token,
+# so this must never be committed.
+.vercel-hoj/
+.vercel/
+.DS_Store

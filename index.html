@@ -37,35 +37,26 @@
 
   <!-- 01 ───────────────────────────────────────────── HERO -->
   <section class="rave-hero">
-    <!-- HERO VIDEO GOES HERE.
-         Drop a loop at /img/rave-hero.mp4 with a poster at /img/rave-hero.webp,
-         then swap the div below for the commented video element and uncomment
-         the matching block in css/rave.css. Until then the gradient carries it. -->
-    <div class="rave-hero-media" aria-hidden="true"></div>
-    <!--
-    <video class="rave-hero-media" autoplay muted loop playsinline preload="metadata"
-           poster="/img/rave-hero.webp" aria-hidden="true">
-      <source src="/img/rave-hero.mp4" type="video/mp4">
-    </video>
-    -->
-
     <div class="wrap rave-hero-inner">
-      <p class="eyebrow rave-eyebrow">
-        <span class="mini-line"></span> <span>LONDON</span>
-        <span class="slash">/</span> <span>JANUARY 2027</span>
-        <span class="slash">/</span> <span>DAYTIME</span>
-      </p>
 
-      <h1 class="rave-title">SOBER<br><span>RAVE.</span></h1>
+      <div class="rave-hero-copy">
+        <p class="eyebrow rave-eyebrow">
+          <span class="mini-line"></span> <span>LONDON</span>
+          <span class="slash">/</span> <span>JANUARY 2027</span>
+          <span class="slash">/</span> <span>DAYTIME</span>
+        </p>
 
-      <p class="rave-hook">Lose yourself in the music.<br>Find yourself in the movement.</p>
+        <h1 class="rave-title">SOBER<br><span>RAVE.</span></h1>
 
-      <p class="rave-standfirst">An immersive daytime rave bringing together electronic music, guided breathwork and the freedom of ecstatic dance.</p>
+        <!-- HOOK. Swap this line for any of the alternatives if you prefer one. -->
+        <p class="rave-hook">Sober.<br>And nobody’s standing still.</p>
 
-      <p class="genre-strip">Big sound. Open minds. No alcohol required.</p>
+        <p class="rave-standfirst">An immersive daytime rave bringing together electronic music, guided breathwork and the freedom of ecstatic dance.</p>
 
-      <div class="rave-signup">
-        <p class="signup-kicker">Be first to hear the line-up, venue and ticket release.</p>
+        <p class="genre-strip">Big sound. Open minds. No alcohol required.</p>
+
+        <div class="rave-signup">
+          <p class="signup-kicker">Be first to hear the line-up, venue and ticket release.</p>
 <form class="signup-form" action="/api/subscribe" method="post" novalidate>
 <label for="email-rave">Email address</label>
 <input id="email-rave" name="email" type="email" placeholder="you@example.com" autocomplete="email"
@@ -80,7 +71,25 @@
 <p class="thanks-title">You’re on the waitlist.</p>
 <p>Line-up, venue and the ticket release. You’ll hear it first.</p>
 </div>
+        </div>
       </div>
+
+      <figure class="rave-film">
+        <video id="rave-video" muted loop playsinline autoplay preload="metadata"
+               poster="/img/rave-hero.webp"
+               aria-label="People dancing with their arms raised at a SOMA Breath session">
+          <source src="/img/rave-hero.webm" type="video/webm">
+          <source src="/img/rave-hero.mp4" type="video/mp4">
+        </video>
+        <div class="film-shade"></div>
+        <div class="film-top">
+          <span class="film-label">THIS IS THE ROOM</span>
+          <button id="video-toggle" class="film-button" type="button" aria-label="Pause footage">Pause footage <span aria-hidden="true">❚❚</span></button>
+        </div>
+        <div class="film-title" aria-hidden="true">LOSE<br>YOURSELF.</div>
+        <figcaption><span>SOMA Breath in action</span><span>Moments from our community</span></figcaption>
+      </figure>
+
     </div>
   </section>
 
@@ -253,5 +262,24 @@
     <button type="button" class="consent-btn" data-consent="granted">Accept</button>
   </div>
 </div>
+<script>
+(function () {
+  var v = document.getElementById("rave-video");
+  var b = document.getElementById("video-toggle");
+  if (!v || !b) return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    v.removeAttribute("autoplay"); v.pause();
+  }
+  function label() {
+    var playing = !v.paused;
+    b.innerHTML = (playing ? "Pause footage " : "Play footage ") +
+      '<span aria-hidden="true">' + (playing ? "\u275A\u275A" : "\u25B6") + "</span>";
+    b.setAttribute("aria-label", playing ? "Pause footage" : "Play footage");
+  }
+  b.addEventListener("click", function () { v.paused ? v.play() : v.pause(); });
+  v.addEventListener("play", label); v.addEventListener("pause", label);
+  label();
+})();
+</script>
 </body>
 </html>

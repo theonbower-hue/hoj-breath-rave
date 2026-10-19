@@ -3,3 +3,6 @@
 .vercel-hoj/
 .vercel/
 .DS_Store
+
+# Video masters. Encoded web versions are committed; the originals are not.
+img/V4.mp4

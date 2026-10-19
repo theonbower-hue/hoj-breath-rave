@@ -82,7 +82,7 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 
 .rave-title {
   font-family: Archivo, Arial, sans-serif; font-weight: 900;
-  font-size: clamp(4.4rem, 15vw, 11rem); line-height: .86;
+  font-size: clamp(2.3rem, 5.8vw, 5.45rem); line-height: .92;
   letter-spacing: -.07em; margin: 22px 0 0;
 }
 .rave-title span { color: var(--purple); }
@@ -154,10 +154,10 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 .rave-how h2 span { color: var(--purple); }
 .gears { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 /* Each pillar now opens with a photo, then the purple rule under it. */
-.gears > li { border-top: 0; padding-top: 0; }
-.gears .step-image { aspect-ratio: 1; border-radius: 16px; margin-bottom: 20px; background: #1b1030; }
+.gears > li { border-top: 0; padding-top: 0; display: flex; flex-direction: column; }
+.gears .step-image { aspect-ratio: 1; border-radius: 16px; background: #1b1030; }
 .gears > li:hover .step-image img { transform: scale(1.03); }
-.gear-body { border-top: 2px solid var(--purple); padding-top: 18px; }
+.gear-body { border-top: 2px solid var(--purple); padding-top: 18px; padding-bottom: 20px; flex: 1; }
 .gear-no { font-size: .72rem; font-weight: 700; letter-spacing: .18em; color: var(--purple); }
 .gears h3 { font-family: Archivo, Arial, sans-serif; font-weight: 900; font-size: 1.65rem; letter-spacing: -.035em; margin: 10px 0 10px; }
 .gears p { color: var(--muted); font-size: .95rem; line-height: 1.6; margin: 0; }
@@ -191,11 +191,13 @@ body.rave .answer { color: var(--muted); }
 /* ---------- the full SOMA session, offered quietly ---------- */
 .also-card {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 36px; flex-wrap: wrap;
+  gap: 34px; flex-wrap: wrap;
   border: 1px solid var(--line); border-radius: 18px;
   background: #140d24; padding: 32px 34px;
 }
-.also-copy { min-width: 0; max-width: 60ch; }
+.also-image { flex: 0 0 300px; border-radius: 12px; overflow: hidden; background: #1b1030; }
+.also-image img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1.45; }
+.also-copy { min-width: 240px; flex: 1; max-width: 52ch; }
 .also-card h2 {
   font-family: Archivo, Arial, sans-serif; font-weight: 900;
   font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.035em;
@@ -207,7 +209,8 @@ body.rave .answer { color: var(--muted); }
 }
 .also-card .button.light:hover { background: var(--purple); color: #140d24; }
 @media (max-width: 700px) {
-  .also-card { padding: 26px 22px; gap: 22px; }
+  .also-card { padding: 22px 18px; gap: 20px; }
+  .also-image { flex: 1 1 100%; }
   .also-card .button.light { align-self: flex-start; }
 }
 
@@ -264,7 +267,7 @@ body.rave .footer-bottom { border-top-color: var(--line); }
 @media (max-width: 700px) {
   .rave-hero-inner { padding-block: 36px 40px; }
   .rave-film { height: 380px; border-radius: 120px 120px 16px 16px; }
-  .rave-title { font-size: clamp(3.6rem, 19vw, 7rem); }
+  .rave-title { font-size: clamp(2.1rem, 11vw, 4.6rem); }
   .rave-standfirst { font-size: 1.08rem; max-width: none; }
   .lineup { margin-top: 24px; }
   .rave-signup { max-width: none; }

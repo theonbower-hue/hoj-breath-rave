@@ -155,7 +155,7 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 .gears { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 /* Each pillar now opens with a photo, then the purple rule under it. */
 .gears > li { border-top: 0; padding-top: 0; }
-.gears .step-image { aspect-ratio: .82; border-radius: 16px; margin-bottom: 20px; background: #1b1030; }
+.gears .step-image { aspect-ratio: 1; border-radius: 16px; margin-bottom: 20px; background: #1b1030; }
 .gears > li:hover .step-image img { transform: scale(1.03); }
 .gear-body { border-top: 2px solid var(--purple); padding-top: 18px; }
 .gear-no { font-size: .72rem; font-weight: 700; letter-spacing: .18em; color: var(--purple); }
@@ -218,6 +218,29 @@ body.rave .answer { color: var(--muted); }
 .rave-close h2 { font-size: clamp(3.4rem, 11vw, 7rem); line-height: .95; margin: 18px 0 32px; }
 .rave-close h2 span { color: var(--purple); }
 .rave-fine { font-size: .78rem; color: var(--muted); margin-top: 16px; }
+
+/* ---------- the two shared bars ----------
+   style.css and site.css give the consent banner and the phone CTA bar a
+   hardcoded light surface but colour their text with --ink. This page flips
+   --ink to near-white, which left white text on white. Give both a dark
+   surface here rather than unpicking the shared files. */
+body.rave .consent {
+  background: #17102af2; border-color: var(--line); color: var(--ink);
+  box-shadow: 0 16px 44px rgba(0,0,0,.5);
+}
+body.rave .consent p { color: var(--ink); }
+body.rave .consent a { color: var(--purple); text-decoration: underline; }
+body.rave .consent-btn { background: #241741; color: var(--ink); border-color: #3a2b56; }
+body.rave .consent-btn:hover { background: #2f1f55; border-color: var(--purple); }
+
+body.rave .mobile-cta {
+  background: #140d24f2; border-top-color: var(--line);
+  box-shadow: 0 -5px 25px rgba(0,0,0,.45);
+}
+body.rave .mobile-cta > span { color: var(--muted); }
+body.rave .mobile-cta strong { color: var(--ink); }
+body.rave .mobile-cta .button { background: var(--purple); color: #140d24; border-color: var(--purple); }
+body.rave .mobile-cta .button:hover { background: #c1a0ff; color: #140d24; }
 
 /* ---------- footer ---------- */
 body.rave .footer-top img { filter: invert(1) brightness(1.6); }

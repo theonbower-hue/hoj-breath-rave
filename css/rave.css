@@ -141,6 +141,22 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 .rave-music-copy p { color: var(--muted); font-size: .98rem; line-height: 1.65; margin: 0 0 16px; }
 .rave-music-note { font-size: .85rem; font-weight: 600; color: var(--purple); margin: 16px 0 0; }
 
+/* ---------- venue card ---------- */
+.venue-card {
+  margin: 28px 0 0; padding: 22px 24px;
+  border: 1px solid var(--line); border-radius: 14px;
+  background: #19112c;
+}
+.venue-card .venue-kicker { font-size: .7rem; letter-spacing: .18em; font-weight: 700; color: var(--purple); margin: 0; }
+.venue-card .venue-mark {
+  font-family: Archivo, Arial, sans-serif; font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 3.1rem); line-height: 1;
+  letter-spacing: -.055em; margin: 10px 0 12px; color: var(--ink);
+}
+.venue-card img.venue-mark { width: auto; max-width: 240px; height: auto; }
+.venue-card .venue-note { color: var(--muted); font-size: .93rem; line-height: 1.6; margin: 0; }
+@media (max-width: 700px) { .venue-card { padding: 18px 18px; } }
+
 /* ---------- alcohol-free ---------- */
 .rave-sober-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: start; }
 .rave-sober h2 { margin-top: 16px; }

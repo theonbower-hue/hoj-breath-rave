@@ -46,14 +46,20 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 }
 .rave-title span { color: var(--purple); }
 
+.rave-hook {
+  font-family: Archivo, Arial, sans-serif; font-weight: 800;
+  font-size: clamp(1.45rem, 3.4vw, 2.3rem); line-height: 1.12;
+  letter-spacing: -.035em; margin: 22px 0 0; color: var(--purple);
+}
+
 .rave-standfirst {
-  font-size: clamp(1.1rem, 2.4vw, 1.5rem); font-weight: 550; line-height: 1.35;
-  max-width: 24ch; margin: 24px 0 0; letter-spacing: -.02em;
+  font-size: clamp(1rem, 1.9vw, 1.2rem); font-weight: 450; line-height: 1.5;
+  max-width: 44ch; margin: 18px 0 0; color: var(--muted);
 }
 
 /* ---------- line-up ---------- */
 .lineup {
-  list-style: none; margin: 40px 0 0; padding: 26px 0 0;
+  list-style: none; margin: 28px 0 0; padding: 24px 0 0;
   border-top: 1px solid var(--line);
   display: flex; flex-direction: column; gap: 6px;
 }
@@ -77,14 +83,31 @@ body.rave .hoj-mark { width: 120px; height: auto; }
 .rave-signup { margin-top: 34px; max-width: 420px; }
 .rave-signup .signup-kicker { font-size: .85rem; font-weight: 600; color: var(--purple); margin: 0 0 12px; }
 
-/* ---------- facts strip ---------- */
-.rave-strip { border-block: 1px solid var(--line); background: #120c1f; }
-.rave-strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding-block: 26px; }
-.rave-strip-inner > div { display: flex; flex-direction: column; gap: 7px; }
-.rave-strip-inner > div + div { border-left: 1px solid var(--line); padding-left: 30px; }
-.rave-strip .meta-label { font-size: .7rem; letter-spacing: .15em; font-weight: 700; color: var(--purple); }
-.rave-strip strong { font-size: .97rem; font-weight: 550; letter-spacing: -.015em; }
 
+/* ---------- a repeated pull line, used in two sections ---------- */
+.rave-pullquote {
+  font-family: Archivo, Arial, sans-serif; font-weight: 800;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.2;
+  letter-spacing: -.03em; color: var(--ink); margin: 22px 0 0;
+}
+
+/* ---------- music and artists ---------- */
+.rave-music { background: #120c1f; border-block: 1px solid var(--line); }
+.rave-music-inner { display: grid; grid-template-columns: 1fr 1.15fr; gap: 70px; padding-block: 88px; align-items: start; }
+.rave-music-type h2 { margin-top: 16px; }
+.rave-music-type h2 span { color: var(--purple); }
+.rave-music-copy .lead { font-size: 1.22rem; font-weight: 550; line-height: 1.45; margin: 0 0 16px; }
+.rave-music-copy p { color: var(--muted); font-size: .98rem; line-height: 1.65; margin: 0 0 16px; }
+.rave-music-note { font-size: .85rem; font-weight: 600; color: var(--purple); margin: 16px 0 0; }
+
+/* ---------- alcohol-free ---------- */
+.rave-sober-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 70px; align-items: start; }
+.rave-sober h2 { margin-top: 16px; }
+.rave-sober h2 span { color: var(--purple); }
+.rave-sober-copy .lead { font-size: 1.24rem; font-weight: 550; line-height: 1.45; margin: 0 0 18px; }
+.rave-sober-copy p { color: var(--muted); font-size: .98rem; line-height: 1.65; margin: 0 0 16px; }
+
+/* ---------- three gears heading ---------- */
 /* ---------- three gears ---------- */
 .rave-how h2 { margin: 18px 0 44px; }
 .rave-how h2 span { color: var(--purple); }
@@ -126,15 +149,15 @@ body.rave .footer-bottom { border-top-color: var(--line); }
 /* ---------- phones ---------- */
 @media (max-width: 860px) {
   .rave-argument-inner { grid-template-columns: 1fr; gap: 30px; padding-block: 60px; }
+  .rave-music-inner { grid-template-columns: 1fr; gap: 30px; padding-block: 60px; }
+  .rave-sober-inner { grid-template-columns: 1fr; gap: 26px; }
   .gears { grid-template-columns: 1fr; gap: 26px; }
 }
 @media (max-width: 700px) {
   .rave-hero-inner { padding-block: 44px 40px; }
   .rave-title { font-size: clamp(3.6rem, 19vw, 7rem); }
   .rave-standfirst { font-size: 1.08rem; max-width: none; }
-  .lineup { margin-top: 30px; }
+  .lineup { margin-top: 24px; }
   .rave-signup { max-width: none; }
-  .rave-strip-inner { grid-template-columns: 1fr; gap: 18px; padding-block: 22px; }
-  .rave-strip-inner > div + div { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 16px; }
   .rave-close-inner { padding-block: 58px 54px; }
 }

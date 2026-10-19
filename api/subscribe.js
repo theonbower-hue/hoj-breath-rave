@@ -4,7 +4,8 @@
 // Env: BREVO_API_KEY, BREVO_LIST_ID (set in Vercel → Settings → Environment Variables).
 // Optional: BREVO_LIST_ID_RAVE adds rave-page sign-ups to a second list as well as the
 // main one, so where someone came from survives a later re-signup.
-// Optional: META_CAPI_TOKEN sends the sign-up to Meta's Conversions API, but only for
+// Optional: META_CAPI_TOKEN (or META_CONVERSION_API) sends the sign-up to Meta's
+// Conversions API, but only for
 // visitors who accepted cookies. META_TEST_EVENT_CODE routes events to Events Manager's
 // "Test events" tab while checking the setup; remove it afterwards.
 
@@ -29,7 +30,10 @@ const UTM_FIELDS = {
 // Server-side Lead for Meta, deduplicated against the browser pixel by event_id.
 // Never blocks or fails the sign-up: errors are logged and swallowed.
 async function sendMetaLead(req, body, email) {
-  const token = process.env.META_CAPI_TOKEN;
+  // Accepts either name: the main site uses META_CAPI_TOKEN, this project was
+  // set up as META_CONVERSION_API. Vercel cannot rename a variable in place,
+  // so read both rather than make someone paste the token in again.
+  const token = process.env.META_CAPI_TOKEN || process.env.META_CONVERSION_API;
   if (!token || body.consent !== true) return;
 
   const userData = {

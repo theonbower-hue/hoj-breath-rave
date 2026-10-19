@@ -72,7 +72,7 @@
 }
 
 .signup-thanks .thanks-title {
-  font-family: "Archivo Black", var(--font);
+  font-family: Archivo, var(--font);
   font-size: 1.15rem;
   color: var(--ink);
   margin: 0 0 6px;
@@ -172,7 +172,7 @@
 .signup-dialog .eyebrow { font-size: .7rem; letter-spacing: .12em; color: var(--muted); margin: 0 0 10px; }
 
 .signup-dialog h2 {
-  font-family: "Archivo Black", var(--font);
+  font-family: Archivo, var(--font);
   font-size: 1.6rem;
   line-height: 1.1;
   margin: 0 0 10px;
@@ -434,7 +434,7 @@ button.text-link {
 .proof-list li { display: grid; gap: 7px; }
 
 .proof-list strong {
-  font-family: "Archivo Black", var(--font);
+  font-family: Archivo, var(--font);
   font-size: .95rem;
   letter-spacing: -.01em;
   color: var(--ink);
@@ -472,7 +472,7 @@ button.text-link {
 }
 
 .venue-secret-large {
-  font-family: "Archivo Black", var(--font);
+  font-family: Archivo, var(--font);
   font-size: clamp(2rem, 7vw, 3.1rem);
   line-height: 1.02;
   letter-spacing: -.035em;

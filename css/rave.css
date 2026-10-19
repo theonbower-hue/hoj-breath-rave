@@ -223,6 +223,16 @@ body.rave .answer { color: var(--muted); }
 .rave-close h2 span { color: var(--purple); }
 .rave-fine { font-size: .78rem; color: var(--muted); margin-top: 16px; }
 
+/* ---------- the thank-you panel ----------
+   site.css gives it a near-white surface and colours the text with --ink,
+   which this page flips to near-white. White on white, in the inline form
+   and inside the dialog. Give it a dark surface here. */
+body.rave .signup-thanks {
+  background: #1d1433; border-color: #2f2447;
+}
+body.rave .signup-thanks .thanks-title { color: var(--ink); }
+body.rave .signup-thanks p { color: #c3b8d8; }
+
 /* ---------- the two shared bars ----------
    style.css and site.css give the consent banner and the phone CTA bar a
    hardcoded light surface but colour their text with --ink. This page flips

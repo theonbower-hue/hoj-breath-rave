@@ -117,19 +117,34 @@
     <h2 class="display">Three reasons<br><span>to be there.</span></h2>
     <ol class="gears">
       <li>
-        <span class="gear-no">01</span>
-        <h3>The music</h3>
-        <p>Proper house and techno, credible DJs and immersive sound.</p>
+        <div class="step-image">
+          <img src="/img/pillar-music.webp" alt="A DJ playing a set at the decks with dancers behind him under warm stage light" width="1000" height="1250" loading="lazy">
+        </div>
+        <div class="gear-body">
+          <span class="gear-no">01</span>
+          <h3>The music</h3>
+          <p>Proper house and techno, credible DJs and immersive sound.</p>
+        </div>
       </li>
       <li>
-        <span class="gear-no">02</span>
-        <h3>The dancefloor</h3>
-        <p>Freedom to move however you feel. Expressive, welcoming, high energy, no choreography.</p>
+        <div class="step-image">
+          <img src="/img/pillar-floor.webp" alt="A man dancing with his arm raised in the middle of a busy dancefloor" width="1000" height="1250" loading="lazy">
+        </div>
+        <div class="gear-body">
+          <span class="gear-no">02</span>
+          <h3>The dancefloor</h3>
+          <p>Freedom to move however you feel. Expressive, welcoming, high energy, no choreography.</p>
+        </div>
       </li>
       <li>
-        <span class="gear-no">03</span>
-        <h3>The experience</h3>
-        <p>A daytime, alcohol-free party with occasional guided breathing moments woven into the music.</p>
+        <div class="step-image">
+          <img src="/img/pillar-feeling.webp" alt="Two people laughing as they dance close together in a crowd" width="1000" height="1250" loading="lazy">
+        </div>
+        <div class="gear-body">
+          <span class="gear-no">03</span>
+          <h3>The experience</h3>
+          <p>A daytime, alcohol-free party with occasional guided breathing moments woven into the music.</p>
+        </div>
       </li>
     </ol>
   </section>
@@ -149,9 +164,20 @@
              as booked until contracts are signed. When artists are confirmed,
              replace the placeholder item with one <li class="lineup-name"> per name. -->
         <ul class="lineup" aria-label="Line-up">
-          <li class="lineup-name lineup-guest">LINE-UP <span>ANNOUNCED SOON</span></li>
+          <li class="lineup-name lineup-guest">FULL LINE-UP <span>ANNOUNCED SOON</span></li>
         </ul>
         <p class="rave-music-note">The waitlist hears every announcement first.</p>
+
+        <!-- The ad flyer. The animation is a slow gradient behind fixed type, so
+             the static artwork doubles as the poster and the reduced-motion view. -->
+        <figure class="flyer">
+          <video id="flyer-video" muted loop playsinline autoplay preload="none"
+                 poster="/img/flyer.webp"
+                 aria-label="Breath Rave flyer: Niraj Naik, Beni Jung and a special guest, London, January 2027">
+            <source src="/img/flyer.webm" type="video/webm">
+            <source src="/img/flyer.mp4" type="video/mp4">
+          </video>
+        </figure>
       </div>
     </div>
   </section>
@@ -277,6 +303,10 @@
 </div>
 <script>
 (function () {
+  var flyer = document.getElementById("flyer-video");
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (flyer && still) { flyer.removeAttribute("autoplay"); flyer.pause(); }
+
   var v = document.getElementById("rave-video");
   var b = document.getElementById("video-toggle");
   if (!v || !b) return;

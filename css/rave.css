@@ -55,7 +55,11 @@ body.rave .hoj-mark { width: 120px; height: auto; }
   position: absolute; bottom: 38px; left: 32px; right: 32px;
   font-family: Archivo, Arial, sans-serif; font-weight: 900; color: #fff;
   font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; letter-spacing: -.05em;
+  /* The shade below is gradient, so footage can still come up pale behind a
+     line. A soft shadow keeps both colours readable whatever the frame. */
+  text-shadow: 0 2px 14px rgba(10,6,20,.7);
 }
+.film-title span { color: var(--purple); }
 
 .rave-eyebrow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; color: var(--purple); font-size: .75rem; }
 .rave-eyebrow .mini-line { width: 24px; height: 2px; background: var(--purple); }
@@ -258,11 +262,12 @@ body.rave .footer-bottom { border-top-color: var(--line); }
   .rave-hero-inner { grid-template-columns: 1fr; gap: 36px; }
   .rave-film { min-height: 0; height: 440px; max-width: 460px; width: 100%; justify-self: center;
                border-radius: 150px 150px 18px 18px; order: -1; }
-  .film-title { font-size: 2.4rem; bottom: 66px; left: 26px; }
+  .film-title { font-size: 2.4rem; bottom: 30px; left: 28px; right: 28px; }
   }
 @media (max-width: 700px) {
   .rave-hero-inner { padding-block: 36px 40px; }
   .rave-film { height: 380px; border-radius: 120px 120px 16px 16px; }
+  .film-title { font-size: 2.15rem; bottom: 26px; left: 24px; right: 24px; }
   .rave-title { font-size: clamp(2.1rem, 11vw, 4.6rem); }
   .rave-standfirst { font-size: 1.08rem; max-width: none; }
   .lineup { margin-top: 24px; }

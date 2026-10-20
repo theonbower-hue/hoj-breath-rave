@@ -223,6 +223,13 @@ body.rave .answer { color: var(--muted); }
 .rave-close h2 span { color: var(--purple); }
 .rave-fine { font-size: .78rem; color: var(--muted); margin-top: 16px; }
 
+/* ---------- the email field ----------
+   site.css gives the input a hardcoded white background but colours the text
+   with --ink, which this page flips to near-white: people could not see their
+   own address as they typed it. Pin the text dark against that white box. */
+body.rave .signup-form input[type="email"] { color: #16101e; }
+body.rave .signup-form input[type="email"]::placeholder { color: #8b8398; }
+
 /* ---------- the thank-you panel ----------
    site.css gives it a near-white surface and colours the text with --ink,
    which this page flips to near-white. White on white, in the inline form

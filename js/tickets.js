@@ -17,7 +17,7 @@
    * TICKETS_URL stays empty until the vendor link exists. Nothing switches
    * while it is empty, whatever the clock says.
    */
-  var TICKETS_URL = "";
+  var TICKETS_URL = "https://www.eventbrite.co.uk/e/soma-breath-a-breathwork-experience-at-fabric-london-niraj-naik-tickets-2004067653299?aff=oddtdtcreator&keep_tld=true";
   var LIVE_AT     = 1793361600000;   // 30 October 2026, 12:00 UK (GMT)
   /* ──────────────────────────────────────────────────────────────────── */
 
@@ -63,6 +63,14 @@
       target.removeAttribute("data-open-signup");
       target.setAttribute("data-cta", "live");
     }
+
+    /* Copy that is only true on one side of the launch. Blocks marked
+       data-when="pre" come out, data-when="post" go in, so the answers on
+       the page can never contradict the buttons. */
+    var pre = document.querySelectorAll('[data-when="pre"]');
+    for (var p = 0; p < pre.length; p++) pre[p].hidden = true;
+    var post = document.querySelectorAll('[data-when="post"]');
+    for (var q = 0; q < post.length; q++) post[q].hidden = false;
 
     /* Artwork: any image given a live variant swaps to it. */
     var art = document.querySelectorAll("[data-art-live]");

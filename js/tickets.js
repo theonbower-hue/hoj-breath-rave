@@ -30,7 +30,7 @@
     {
       name:    "Session 1 — Niraj Naik",
       url:     "https://www.eventbrite.co.uk/e/soma-breath-a-breathwork-experience-at-fabric-london-niraj-naik-tickets-2004067653299?aff=oddtdtcreator&keep_tld=true",
-      soldOut: false
+      soldOut: true
     },
     {
       name:    "Session 2 — Beni Jung",

@@ -34,7 +34,7 @@
     },
     {
       name:    "Session 2 — Beni Jung",
-      url:     "",
+      url:     "https://www.eventbrite.co.uk/e/soma-breath-a-breathwork-experience-at-fabric-london-beni-jung-tickets-2004114843446?aff=oddtdtcreator",
       soldOut: false
     }
   ];

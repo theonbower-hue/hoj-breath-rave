@@ -106,6 +106,14 @@ body.rave .hoj-mark { width: 120px; height: auto; }
   letter-spacing: .01em; color: var(--muted);
 }
 
+.sold-flag {
+  margin: 22px 0 0; padding: 11px 16px; max-width: 420px;
+  border: 1px solid var(--purple); border-radius: 10px;
+  background: rgba(169, 123, 255, .12);
+  font-size: .92rem; line-height: 1.45; color: var(--ink);
+}
+.sold-flag strong { color: var(--purple); }
+
 .rave-signup { margin-top: 34px; max-width: 420px; }
 .rave-signup .signup-kicker { font-size: .85rem; font-weight: 600; color: var(--purple); margin: 0 0 12px; }
 

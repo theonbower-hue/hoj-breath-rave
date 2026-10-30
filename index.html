@@ -61,8 +61,11 @@
 
         <p class="genre-strip">House. Techno. Movement. Connection.</p>
 
+        <p class="sold-flag" data-when="soldout" hidden><strong>Session 1 sold out.</strong> A second session has been added with Beni Jung.</p>
+
         <div class="rave-signup">
-          <p class="signup-kicker">Something different is coming to London. Join the list for first access to tickets, the lineup and our venue reveal.</p>
+          <p class="signup-kicker" data-when="pre">Something different is coming to London. Join the list for first access to tickets, the lineup and our venue reveal.</p>
+          <p class="signup-kicker" data-when="post" hidden>Join the list for the rave-only tier, the headliner announcement and first access to anything we add.</p>
 <form class="signup-form" action="/api/subscribe" method="post" novalidate>
 <label for="email-rave">Email address</label>
 <input id="email-rave" name="email" type="email" placeholder="you@example.com" autocomplete="email"
@@ -75,7 +78,8 @@
 </form>
 <div class="signup-thanks" tabindex="-1" hidden>
 <p class="thanks-title">You’re on the waitlist.</p>
-<p>Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="pre">Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="post" hidden>The headliner and the rave-only tier. You’ll hear it first.</p>
 </div>
         </div>
       </div>
@@ -228,7 +232,7 @@
       <details><summary>Is this ecstatic dance?<span aria-hidden="true">+</span></summary><div class="answer"><p>It shares some ground with ecstatic dance and conscious clubbing: alcohol-free, no pressure, no right way to move. The difference is that this is DJ-led house and techno in a nightclub rather than a facilitated dance journey, and the breathwork is a short moment rather than the frame around the whole thing. If you come from the ecstatic dance or sober rave community you will feel at home. If you have never done either, you will be fine too.</p></div></details>
       <details><summary>Is this a daytime event?<span aria-hidden="true">+</span></summary><div class="answer"><p>Yes. It is a daytime rave: it runs during the day and you are done and home in good time. Full timings go out with the on sale announcement.</p></div></details>
       <details><summary>Who is it for?<span aria-hidden="true">+</span></summary><div class="answer"><p>Anyone who loves electronic music and wants to experience it differently. Whether you’re sober, sober-curious or simply looking for something new, you’re welcome. No previous breathwork or dance experience needed.</p><p>Age restrictions and full event details will be confirmed before tickets go on sale.</p></div></details>
-      <details><summary>When are tickets released?<span aria-hidden="true">+</span></summary><div class="answer"><div data-when="pre"><p>Tickets haven’t been released yet. Join the waitlist to be first to hear when they go live, with early access ahead of the public release.</p><button class="text-link" type="button" data-cta data-open-signup>Join the waitlist <span aria-hidden="true">↗</span></button></div><div data-when="post" hidden><p>They are on sale now. The first release is Session 1 with Niraj Naik at fabric on Saturday 9 January 2027, and places are strictly limited.</p><p><a class="text-link" href="https://www.eventbrite.co.uk/e/soma-breath-a-breathwork-experience-at-fabric-london-niraj-naik-tickets-2004067653299?aff=oddtdtcreator&amp;keep_tld=true" rel="noopener">Buy tickets <span aria-hidden="true">↗</span></a></p></div></div></details>
+      <details><summary>When are tickets released?<span aria-hidden="true">+</span></summary><div class="answer"><div data-when="pre"><p>Tickets haven’t been released yet. Join the waitlist to be first to hear when they go live, with early access ahead of the public release.</p><button class="text-link" type="button" data-cta data-open-signup>Join the waitlist <span aria-hidden="true">↗</span></button></div><div data-when="onsale" hidden><p>They are on sale now. The first release is Session 1 with Niraj Naik at fabric on Saturday 9 January 2027, and places are strictly limited.</p><p><button class="text-link" type="button" data-cta data-open-signup>Join the waitlist <span aria-hidden="true">↗</span></button></p></div><div data-when="soldout" hidden><p>Session 1 with Niraj Naik sold out. The session on sale now is the second one that day, led by SOMA Breath instructor Beni Jung, and it includes the same afternoon rave.</p><p><button class="text-link" type="button" data-cta data-open-signup>Join the waitlist <span aria-hidden="true">↗</span></button></p></div></div></details>
       <details><summary>Is the venue accessible?<span aria-hidden="true">+</span></summary><div class="answer"><p>Tell us what you need at <a href="mailto:info@houseofjung.org">info@houseofjung.org</a> and we will confirm exactly what the venue can offer before you book. Full access details go out with the on sale announcement.</p></div></details>
     </div>
   </section>
@@ -255,7 +259,8 @@
       <p class="eyebrow">LONDON · JANUARY 2027</p>
       <h2 class="display">Join<br><span>the waitlist.</span></h2>
       <div class="rave-signup">
-        <p class="signup-kicker">Be first to hear the lineup, venue and ticket release.</p>
+        <p class="signup-kicker" data-when="pre">Be first to hear the lineup, venue and ticket release.</p>
+        <p class="signup-kicker" data-when="post" hidden>Be first to hear the headliner and the rave-only tier.</p>
 <form class="signup-form" action="/api/subscribe" method="post" novalidate>
 <label for="email-close">Email address</label>
 <input id="email-close" name="email" type="email" placeholder="you@example.com" autocomplete="email"
@@ -268,7 +273,8 @@
 </form>
 <div class="signup-thanks" tabindex="-1" hidden>
 <p class="thanks-title">You’re on the waitlist.</p>
-<p>Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="pre">Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="post" hidden>The headliner and the rave-only tier. You’ll hear it first.</p>
 </div>
       </div>
       <p class="rave-fine">Lineup, venue and ticket release. Nothing else.</p>
@@ -309,9 +315,11 @@
 </form>
 <div class="signup-thanks" tabindex="-1" hidden>
 <p class="thanks-title">You’re on the waitlist.</p>
-<p>Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="pre">Lineup, venue and the ticket release. You’ll hear it first.</p>
+<p data-when="post" hidden>The headliner and the rave-only tier. You’ll hear it first.</p>
 </div>
-  <p class="dialog-fine">Lineup, venue and the ticket release. Nothing else.</p>
+  <p class="dialog-fine" data-when="pre">Lineup, venue and the ticket release. Nothing else.</p>
+  <p class="dialog-fine" data-when="post" hidden>The headliner and the rave-only tier. Nothing else.</p>
 </dialog>
 
 <div class="consent" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
